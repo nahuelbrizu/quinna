@@ -83,6 +83,8 @@
 </div>
 
 <div class="string-container">
+    <h1>Descubre</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, molestiae.</p>
     <div class="string-img-container">
         <div class="cards">
             <div class="card">
@@ -131,7 +133,40 @@
     </div>
 </div>
 
+<div class="form-container">
+    <div class="row">
+    <h1>Formulario Contactenos</h1>
+    <form id="form">
+        <div class="mb-3">
+            <label for="inputName" class="form-label">name</label>
+            <input type="text" class="form-control" id="inputName"  placeholder="Name" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="inputLastName" class="form-label">name</label>
+            <input type="text" class="form-control" id="inputLastName"  placeholder="LastName" name="apellido">
+        </div>
+        <div class="mb-3">
+            <label for="inputEmail" class="form-label"> Email</label>
+            <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="inputPhone" class="form-label">phone</label>
+            <input type="number" class="form-control" id="inputPhone" placeholder="Phone" name="phone">
+        </div>
+        <div class="mb-3">
+            <label for="inputMessage" class="form-label">Mensaje</label>
+            <textarea type="text" class="form-control" id="inputMessage" placeholder="Message" name="message"></textarea>
+        </div>
+        <button type="submit" id="btn-form" class="btn btn-primary">Enviar</button>
+    </form>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            emailjs.init()
+        </script>
+    </div>
+</div>
 
+/* https://www.youtube.com/watch?v=1kQm2SSD4SY&ab_channel=EagleSoftware  */
 <script src="app.js"></script>
 </body>
 </html>

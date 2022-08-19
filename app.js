@@ -1,12 +1,9 @@
-
-
 /* slider */
 
 const next = document.querySelector(".next");
 const prev =document.querySelector(".prev");
 const imgContainer = document.querySelector(".container-image");
-const img = document.querySelectorAll("img");
-
+const img = imgContainer.querySelectorAll("img");
 
 let currentImg = 0;
 let interval;
@@ -48,12 +45,12 @@ function updateImg(goingRight) {
     if (!goingRight){
         currentImg--;
     }
-    if (currentImg >= img.length - 1  && goingRight){
+    if (currentImg >= img.length - 8  && goingRight){
         scrollDirection = false;
     } else if (currentImg <= 0 && !goingRight){
         scrollDirection = true;
     }
-    imgContainer.style.transform = `translateX(-${(currentImg - 1) * 40}em)`;
+    imgContainer.style.transform = `translateX(-${(currentImg) * 40}em)`;
 }
 
 
@@ -91,3 +88,42 @@ function boundCards() {
     }
 }
 
+const btnForm = document.getElementById("btn-form");
+
+document.getElementById("form").addEventListener('submit', function (e){
+    e.preventDefault();
+    btnForm.value = 'Enviando...';
+
+    const serviceId = 'default_service';
+    const templateId = 'template_4gtcfwm';
+
+    emailjs.sendForm(serviceId, templateId, this)
+        .then( () => {
+            btnForm.value = 'Send Email';
+            alert('Mensaje enviado!');
+        }, (err) => {
+         btnForm.value = 'Send Email';
+         alert(JSON.stringify(err))
+    });
+})
+
+
+
+
+
+
+
+
+
+
+btnForm.addEventListener('click', function (e) {
+    e.preventDefault();
+    let name = document.getElementById("name").value;
+    let lastName = document.getElementById("apellido").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let message = document.getElementById("message").value;
+    let body = 'name: ' + name + ' email: ' + email + ' phone: '+
+        phone + ' message: ' + message;
+    console.log(body);
+})

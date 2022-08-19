@@ -97,7 +97,7 @@ h3, .h3 {
 h1, h1 {
     text-align: center;
     align-items: center;
-    margin: 60px;
+    margin: 30px;
     margin-top: -11px;
 }
 
@@ -183,12 +183,13 @@ img {
 
 
 .string-container {
-    min-height: 100vh;
+    min-height: 60em;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px black;
+    flex-direction: column;
 }
 
 
@@ -196,10 +197,10 @@ img {
     width: 100%;
 }
 
-.string-img-container{
+.string-img-container {
     position: relative;
-    width: 100em;
-    height: 400em;
+    width: 70em;
+    height: 40em;
     overflow: hidden;
     cursor: grab;
     border-radius: 10px;
@@ -219,7 +220,7 @@ img {
 
 }
 
-.card{
+.card {
     border: 1px solid#ccc;
     border-radius: 1rem;
     overflow: hidden;
@@ -229,4 +230,30 @@ img {
 .card__content{
     box-shadow: black;
     padding: 1rem;
+}
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70em;
+}
+
+.form {
+   width: 10em;
+    padding: 6px;
+}
+
+input,  textarea{
+    width: 100%;
+    padding: 1em;
+    outline: none;
+    border: none;
+    margin: 6px 0;
+}
+#btn-form {
+    width: 150px;
+    padding: 6px;
+    cursor: pointer;
 }
