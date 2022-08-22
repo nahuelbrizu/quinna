@@ -12,7 +12,7 @@
 }
 
 html {
-    font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Poppins", "Segoe UI","robo Tahoma", Tahoma, Geneva, Verdana, sans-serif;
     --primary-color: #ffffff;
     --color-body: #f3f3f3;
     --color-text: #383636;
@@ -39,6 +39,7 @@ body {
 /* global */
 a {
     text-decoration: none;
+    color: black;
 }
 
 
@@ -77,7 +78,9 @@ nav {
     display: flex;
     align-items: center;
 }
-
+nav h3, .h3 {
+    color: black;
+}
 .logo {
     font-size: 1.5rem;
     font-weight: 500;
@@ -472,6 +475,9 @@ input,  textarea{
 * {
     box-sizing: border-box;
 }
+p.testimonial{
+    font-size: 2em;
+}
 
 .cometarios-container {
     background-color: #f4f4f4;
@@ -480,12 +486,12 @@ input,  textarea{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 30em;
     overflow: hidden;
     margin: 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 1rem;
+    padding: 15em;
+    border: 53px solid #ccc;
+    border-radius: 5rem;
 }
 
 .testimonial-container {
@@ -496,21 +502,36 @@ input,  textarea{
     max-width: 768px;
     position: relative;
 }
+.user .user-details {
+    margin: 30px 10px;
+}
 
 .fa-quote {
-    color: rgba(255, 255, 255, 0.3);
+    color: black;
     font-size: 28px;
     position: absolute;
-    top: 70px;
+    top: 3px;
 }
 
 .fa-quote-right {
-    left: 40px;
+    right: 40px;
     color: black;
+    top: 5em;
+}
+h4.username{
+    font-size: 3em;
+    padding: 0px 58px;
+    color: blueviolet;
+}
+p.role{
+    align-items: center;
+    font-size: 1em;
+    color: grey;
 }
 
 .fa-quote-left {
-    right: 40px;
+    left: 40px;
+    color: black;
 }
 
 .testimonial {
