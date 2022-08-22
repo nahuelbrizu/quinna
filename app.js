@@ -68,7 +68,7 @@ function updateImg(goingRight) {
     if (!goingRight){
         currentImg--;
     }
-    if (currentImg >= img.length - 8  && goingRight){
+    if (currentImg >= img.length -1  && goingRight){
         scrollDirection = false;
     } else if (currentImg <= 0 && !goingRight){
         scrollDirection = true;
