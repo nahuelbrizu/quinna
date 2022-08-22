@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Quinna</title>
+    <title>Quinna Handpan</title>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+            crossorigin="anonymous"
+    />
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -19,26 +25,35 @@
     <link rel="stylesheet"  href="style.css">
 </head>
 <body>
-
+<header>
+<div class="nav-main">
 <nav class="nav-container">
-    <div class="nav-main">
+
         <div class="nav-header">
             <img src="img/logo.png" alt="logo" class="logo">
             <h3>  Quinna Handpan</h3>
         </div>
-         <ul class="menu">
+         <ul class="menu" >
         <li>
-            <a href="#">Inicio</a>
+            <a href="#" class="navbar__link">Inicio</a>
         </li>
         <li>
-            <a href="#">Descubre</a>
+             <a href="#" class="navbar__link">Descubre</a>
         </li>
         <li>
-            <a href="#">Contactenos</a>
+            <a href="#" class="navbar__link">Contactenos</a>
         </ul>
+    </nav>
+        <label for="theme-checkbox" class="theme-toggler">
+            <input type="checkbox" id="theme-checkbox" class="theme-checkbox" />
+            <div class="switch"></div>
+        </label>
+
     </div>
-</nav>
-   <div class="container-slider">
+</header>
+<main>
+
+   <div class="container-slider" >
        <h1>..👾....🤖..QuiNNaa Carrusel..👾....🤖.. </h1>
        <div class="container-slider-2">
            <div class="container-image">
@@ -54,7 +69,6 @@
        </div>
    </div>
 
-<div class="text">
     <div class="text-container">
         <h2>...👾....🤖..Text blabla...👾....🤖..</h2>
         <p class="text">
@@ -83,15 +97,15 @@
 </div>
 
 <div class="string-container">
-    <h1>Descubre</h1>
+    <h1>Descubre Nuestro Proceso</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, molestiae.</p>
-    <div class="string-img-container">
+    <div class="string-img-container" >
         <div class="cards">
             <div class="card">
                 <img src="./img/plancha.jpeg" alt="">
                 <div class="card__content">
-                    <h1>Heading 1</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                    <h1 >Heading 1</h1>
+                    <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. ></p>
                 </div>
             </div>
             <div class="card">
@@ -119,7 +133,7 @@
                 <img src="./img/TapaPegando.jpeg" alt="">
                 <div class="card__content">
                     <h1>Heading1 5</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                    <p >>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
                 </div>
             </div>
             <div class="card">
@@ -133,24 +147,49 @@
     </div>
 </div>
 
+
+<div class="cometarios-container">
+    <div class="testimonial-container">
+        <div class="progress-bar"></div>
+        <div class="fas fa-quote-right fa-quote"> </div>
+        <div class="fas fa-quote-left" fa-quote></div>
+        <p class="testimonial">
+            I've worked with literally hundreds of HTML/CSS developers and I have to
+            say the top spot goes to this guy. This guy is an amazing developer. He
+            stresses on good, clean code and pays heed to the details. I love
+            developers who respect each and every aspect of a throughly thought out
+            design and do their best to put it in code. He goes over and beyond and
+            transforms ART into PIXELS - without a glitch, every time.
+        </p>
+        <div class="user">
+            <img   src="https://randomuser.me/api/portraits/women/46.jpg"
+                   alt="user"
+                   class="user-image"/>
+            <div class="user-details">
+                <h4 class="username">Miyah Myles</h4>
+                <p class="role">Marketing</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
 <div class="form-container">
     <div class="row">
     <h1>Formulario Contactenos</h1>
     <form id="form">
         <div class="mb-3">
-            <label for="inputName" class="form-label">name</label>
+            <label for="inputName" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="inputName"  placeholder="Name" name="name">
-        </div>
-        <div class="mb-3">
-            <label for="inputLastName" class="form-label">name</label>
-            <input type="text" class="form-control" id="inputLastName"  placeholder="LastName" name="apellido">
         </div>
         <div class="mb-3">
             <label for="inputEmail" class="form-label"> Email</label>
             <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email">
         </div>
         <div class="mb-3">
-            <label for="inputPhone" class="form-label">phone</label>
+            <label for="inputPhone" class="form-label">Telefono</label>
             <input type="number" class="form-control" id="inputPhone" placeholder="Phone" name="phone">
         </div>
         <div class="mb-3">
@@ -159,14 +198,22 @@
         </div>
         <button type="submit" id="btn-form" class="btn btn-primary">Enviar</button>
     </form>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript"
+                src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+        </script>
         <script type="text/javascript">
-            emailjs.init()
+            (function(){
+                emailjs.init("2BcBsyT8kTJelmIiB");
+            })();
         </script>
     </div>
 </div>
-
-/* https://www.youtube.com/watch?v=1kQm2SSD4SY&ab_channel=EagleSoftware  */
+</main>
+<footer>
+    <div class="card-footer">
+        <h3 class="modal-footer">pagina web de nahuelito para los chicos de handpa</h3>
+    </div>
+</footer>
 <script src="app.js"></script>
 </body>
 </html>
