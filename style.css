@@ -404,8 +404,8 @@ img {
     width: 70em;
     height: 40em;
     overflow: hidden;
-    cursor: grab;
     border-radius: 10px;
+    touch-action: auto;
 
 }
 
@@ -419,7 +419,8 @@ img {
     grid-gap: 50px;
     pointer-events: none;
     border-radius: 10px;
-
+    touch-action: auto;
+    
 }
 
 .card {
@@ -483,7 +484,7 @@ p.testimonial{
     background-color: #f4f4f4;
     font-family: 'Montserrat', sans-serif;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 30em;
