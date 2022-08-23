@@ -503,6 +503,15 @@ p.testimonial{
     max-width: 768px;
     position: relative;
 }
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+    align-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
 .user .user-details {
     margin: 30px 10px;
 }
@@ -520,11 +529,12 @@ p.testimonial{
     top: 5em;
 }
 h4.username{
-    font-size: 3em;
-    padding: 0px 58px;
+    font-size: 1em;
+    padding: 0 58px;
     color: blueviolet;
+    align-items: center;
 }
-p.role{
+p.role {
     align-items: center;
     font-size: 1em;
     color: grey;
@@ -533,6 +543,10 @@ p.role{
 .fa-quote-left {
     left: 40px;
     color: black;
+}
+.testimonial-container{
+    margin-right: 50%;
+    margin-left: 50%;
 }
 
 .testimonial {
@@ -592,14 +606,9 @@ p.role{
         display: none;
     }
 }
-.modal-footer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-    align-items: flex-start;
-    justify-content: space-around;
-    padding: 0.75rem;
-    border-top: 1px solid #dee2e6;
-    border-bottom-right-radius: calc(0.3rem - 1px);
-    border-bottom-left-radius: calc(0.3rem - 1px);
-}
+
+
+
+
+
+
