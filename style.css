@@ -476,9 +476,6 @@ input,  textarea{
 * {
     box-sizing: border-box;
 }
-p.testimonial{
-    font-size: 2em;
-}
 
 .cometarios-container {
     background-color: #f4f4f4;
@@ -498,10 +495,11 @@ p.testimonial{
 .testimonial-container {
     color: #000000;
     border-radius: 15px;
-    margin: 20px auto;
-    padding: 50px 80px;
-    max-width: 768px;
-    position: relative;
+    margin: 35px auto;
+    padding: 17px 145px;
+    width: 90%;
+    max-width: 1600px;
+    position: absolute;
 }
 .user {
     display: flex;
@@ -513,7 +511,8 @@ p.testimonial{
     flex-wrap: nowrap;
 }
 .user .user-details {
-    margin: 30px 10px;
+    margin: 50px 54px;
+    display: contents;
 }
 
 .fa-quote {
@@ -524,15 +523,19 @@ p.testimonial{
 }
 
 .fa-quote-right {
-    right: 40px;
+    right: 127px;
     color: black;
-    top: 5em;
+    top: 0em;
 }
 h4.username{
     font-size: 1em;
     padding: 0 58px;
     color: blueviolet;
     align-items: center;
+}
+.user .role{
+    font-weight: normal;
+    margin: -7px 0;
 }
 p.role {
     align-items: center;
@@ -565,7 +568,7 @@ p.role {
 
 .user .user-image {
     border-radius: 50%;
-    height: 75px;
+    height: 102px;
     width: 75px;
     object-fit: cover;
 }
@@ -589,6 +592,22 @@ p.role {
     width: 100%;
     animation: grow 10s linear infinite;
     transform-origin: left;
+}
+p.testimonial {
+    font-size: 2em;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.testimonial {
+    line-height: 28px;
+    text-align: inherit;
+    color: black;
+    padding: 10px 10px;
 }
 
 @keyframes grow {
