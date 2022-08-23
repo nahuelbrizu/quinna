@@ -1,7 +1,7 @@
 /* slider */
 
 const next = document.querySelector(".next");
-const prev =document.querySelector(".prev");
+const prev = document.querySelector(".prev");
 const imgContainer = document.querySelector(".container-image");
 const img = imgContainer.querySelectorAll("img");
 
@@ -49,6 +49,7 @@ prev.addEventListener("click", () => {
     clearInterval(interval);
     if (currentImg <= img.length - 1){
         updateImg(false);
+        scrollDirection= true;
     } else {
         scrollDirection = false;
     }
@@ -79,7 +80,7 @@ function updateImg(goingRight) {
 
 const container = document.querySelector(".string-img-container");
 const cards = document.querySelector(".cards");
-let isPressedDown = false;
+let isPressedDown = true;
 let cursorXSpace;
 container.addEventListener("mousedown", (e) => {
     isPressedDown = true;
@@ -133,13 +134,13 @@ const testimonials = [
         name: 'juana azurduy',
         position: 'saraza',
         photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6',
-        text: "me encanta su sonido... me eriza los pezones !!",
+        text: "me encanta su sonido !!",
     },
     {
         name: 'June Cha',
         position: 'Musica En Progreso',
         photo: 'https://randomuser.me/api/portraits/women/44.jpg',
-        text: 'el sonido es buenisimo y su acabado me encata',
+        text: 'el sonido es buenisimo y su acabado me encata me gusta el aRTE Y las campanas.. me gusta el aire de tus  campanadasme gusta el aRTE Y las campanas.. me gusta el aire de tus  campanadas.me gusta el aRTE Y las campanas.. me gusta el aire de tus  campanadas..',
     },
     {
         name: 'Roberta ',
@@ -160,7 +161,7 @@ const testimonials = [
         position: 'Graphic Designer',
         photo: 'https://randomuser.me/api/portraits/men/43.jpg',
         text:
-            "excelente sonido me en can ta  ",
+            "excelente sonido me en-can-ta  ",
     },
     {
         name: 'Sasha Ho',
