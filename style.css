@@ -414,7 +414,7 @@ img {
     position: absolute;
     top: 0;
     left: 0;
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(6, 300px);
     grid-gap: 50px;
     pointer-events: none;
