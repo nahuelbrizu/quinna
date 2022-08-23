@@ -316,7 +316,9 @@ h1, h1 {
 
 
 }
-
+#h1-slider{
+    margin: 2em;
+}
 .container-slider-2 {
     position: relative;
     align-items: center;
@@ -328,7 +330,6 @@ h1, h1 {
     box-shadow: 0 4px 8px black;
     transition: transform 0.7s;
 }
-
 
 .container-image {
     display: flex;
