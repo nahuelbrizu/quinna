@@ -77,40 +77,85 @@ function updateImg(goingRight) {
     imgContainer.style.transform = `translateX(-${(currentImg) * 40}em)`;
 }
 
+const container = document.querySelector(".cards");
+ slider = Array.from(document.querySelectorAll('.string-img-container'))
 
-const container = document.querySelector(".string-img-container");
-const cards = document.querySelector(".cards");
-let isPressedDown = true;
-let cursorXSpace;
-container.addEventListener("mousedown", (e) => {
-    isPressedDown = true;
-    cursorXSpace = e.offsetX - cards.offsetLeft;
-    container.style.cursor = "grabbing";
-});
+let isDragging = false,
+    startPos = 0,
+    currenTranslate,
+    prevTranslate = 0,
+    animationID,
+    currentIndex = 0;
 
-container.addEventListener("mouseup", () => {
-    container.style.cursor = "grab";
-});
+slider.forEach((slide, index) => {
+    const slideImage = slide.querySelector('img')
+    slideImage.addEventListener('dragstart', (e) => e.preventDefault())
 
-window.addEventListener("mouseup", () => {
-    isPressedDown = false;
-});
-container.addEventListener("mousemove", (e) => {
-    if (!isPressedDown) return;
-    e.preventDefault();
-    cards.style.left =`${e.offsetX - cursorXSpace}px`;
-    boundCards();
-});
-function boundCards() {
-    const container_rect = container.getBoundingClientRect();
-    const cards_rect = cards.getBoundingClientRect();
+    slide.addEventListener('touchstart', touchStart(index))
+    slide.addEventListener('touchend', touchEnd)
+    slide.addEventListener('touchmove', touchMove)
 
-    if (parseInt(cards.style.left) > 0) {
-        cards.style.left = 0;
-    } else  if (cards_rect.right < container_rect.right) {
-        cards.style.left = `-${cards_rect.width - container_rect.width}px`;
+    slide.addEventListener('mousedown', touchStart(index))
+    slide.addEventListener('mouseup',touchEnd)
+    slide.addEventListener('mousemove', touchMove)
+    slide.addEventListener('mouseleave', touchEnd)
+})
+window.addEventListener('resize', setPositionByIndex)
+
+window.oncontextmenu = function (event) {
+    event.preventDefault();
+    event.stopPropagation()
+    return false
+}
+
+function getPositionX(event){
+    return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX
+}
+
+function touchStart(index){
+    return function (event) {
+        currentIndex = index
+        startPos = getPositionX(event)
+        isDragging = true
+        animationID = requestAnimationFrame(animation)
+        container.classList.add('grabbing')
     }
 }
+
+function touchMove(event){
+    if (isDragging){
+        const currentPosition = getPositionX(event)
+        currenTranslate = prevTranslate + currentPosition - startPos
+    }
+}
+
+function touchEnd(){
+    cancelAnimationFrame(animationID)
+    isDragging = false
+    const movedBy = currenTranslate - prevTranslate
+    container.classList.add('grab')
+
+    if (movedBy < -100 && currentIndex < slider.length -1) currentIndex += 1
+    if (movedBy > 100 && currentIndex > 0) currentIndex -= 1
+
+    setPositionByIndex()
+    container.classList.remove('grabbing')
+}
+
+function animation(){
+    setSliderPosition()
+    if (isDragging) requestAnimationFrame(animation)
+}
+
+function setPositionByIndex(){
+    prevTranslate = currenTranslate
+    setSliderPosition()
+}
+
+function  setSliderPosition(){
+    container.style.transform = `translateX(${currenTranslate}px)`
+}
+
 
 
 const animated_bgs = document.querySelectorAll(".animated-bg");

@@ -377,6 +377,9 @@ img {
 
 }
 
+:root {
+    --shadow: rgba(0, 0, 0, 0.8)
+}
 
 *.string-container::before{}
 
@@ -406,7 +409,11 @@ img {
     height: 40em;
     overflow: hidden;
     border-radius: 10px;
-    touch-action: auto;
+    scrollbar-width: none;
+    transform: translateX(0);
+    will-change: transform;
+    transition: transform 0.3s ease-out;
+    cursor: grab;
 
 }
 
@@ -435,6 +442,31 @@ img {
     box-shadow: black;
     padding: 1rem;
 }
+
+@media(min-width: 1200px){
+    .cards {
+        padding: 3rem;
+    }
+}
+
+.cards img{
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 4px;
+    user-select: none;
+}
+
+.grabbing {
+    cursor: grabbing;
+}
+
+.grabbing .cards img{
+    transform: scale(0.9);
+    box-shadow: 5px 5px 40px -1px var(--shadow);
+}
+
+
 
 .form-container {
     display: flex;
