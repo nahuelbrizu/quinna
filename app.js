@@ -25,7 +25,7 @@ theme_checkbox.addEventListener("change", function (){
         localStorage.setItem("theme", "dark");
     } else {
         document.documentElement.removeAttribute("data-theme");
-        localStorage.removeItem("theme")
+        localStorage.removeItem("data-theme")
     }
 });
 
@@ -49,7 +49,7 @@ prev.addEventListener("click", () => {
     clearInterval(interval);
     if (currentImg <= img.length - 1){
         updateImg(false);
-        scrollDirection= true;
+        scrollDirection= false;
     } else {
         scrollDirection = false;
     }
@@ -185,14 +185,14 @@ const testimonials = [
         name: 'June Cha',
         position: 'Musica En Progreso',
         photo: 'https://randomuser.me/api/portraits/women/44.jpg',
-        text: 'el sonido es buenisimo y su acabado me encata me gusta el aRTE Y las campanas.. me gusta el aire de tus  campanadasme gusta el aRTE Y las campanas.. me gusta el aire de tus  campanadas.me gusta el aRTE Y las campanas.. me gusta el aire de tus  campanadas..',
+        text: 'el sonido es buenisimo y su acabado me encata..',
     },
     {
         name: 'Roberta ',
         position: 'musica',
         photo: 'https://randomuser.me/api/portraits/women/68.jpg',
         text:
-            "me gusta el aRTE Y las campanas.. me gusta el aire de tus campanadas. ",
+            "Lorem ipsum dolor sit amet, consectertertur adipisicing elit. ",
     },
     {
         name: 'Renee Sims',
@@ -206,7 +206,7 @@ const testimonials = [
         position: 'Graphic Designer',
         photo: 'https://randomuser.me/api/portraits/men/43.jpg',
         text:
-            "excelente sonido me en-can-ta  ",
+            "Lorem ipsum dolor sit amet, consectertertur adipisicing elit. ",
     },
     {
         name: 'Sasha Ho',
@@ -214,14 +214,14 @@ const testimonials = [
         photo:
             'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?h=350&auto=compress&cs=tinysrgb',
         text:
-            "me gusta el aRTE Y las campanas.. me gusta el aire de tus  campanadas.",
+            "Lorem ipsum dolor sit amet, consectertertur adipisicing elit.",
     },
     {
         name: 'Veeti Seppanen',
         position: 'Director',
         photo: 'https://randomuser.me/api/portraits/men/97.jpg',
         text:
-            "excelente sonido me encanta  ",
+            "Lorem ipsum dolor sit amet, consectertertur adipisicing elit.",
     },
 ]
 
