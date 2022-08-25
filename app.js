@@ -130,14 +130,13 @@ function touchMove(event){
 }
 
 function touchEnd(){
-    cancelAnimationFrame(animationID)
+    cancelAnimationFrame(animationID)   
     isDragging = false
     const movedBy = currenTranslate - prevTranslate
     container.classList.add('grab')
 
     if (movedBy < -100 && currentIndex < slider.length -1) currentIndex += 1
     if (movedBy > 100 && currentIndex > 0) currentIndex -= 1
-
     setPositionByIndex()
     container.classList.remove('grabbing')
 }
@@ -157,16 +156,6 @@ function  setSliderPosition(){
 }
 
 
-
-const animated_bgs = document.querySelectorAll(".animated-bg");
-const animated_bgs_texts = document.querySelectorAll(".animated-bg-text");
-
-setTimeout(getData, 2300);
-
-function getData() {
-    animated_bgs.forEach( bg => bg.classList.remove('animated-bg'))
-    animated_bgs_texts.forEach( bg => bg.classList.remove('animated-bg-text'))
-}
 
 
 const testimonial = document.querySelector('.testimonial')
