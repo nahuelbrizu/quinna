@@ -288,7 +288,6 @@ h1, h1 {
     text-align: center;
     align-items: center;
     margin: 30px;
-    margin-top: -11px;
     color: var(--color-text);
 }
 .text{
@@ -376,6 +375,52 @@ img {
     width: 100%;
 
 }
+
+
+.videos-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.video{
+    position: center;
+    align-items: center;
+    text-align: center;
+    height: 40em;
+    width:100%;
+    max-width:600px;
+}
+video{
+    width:100%;
+}
+.delimitador{
+    width:100%;
+    height: 100%;
+    margin:auto;
+}
+.contenedor{
+    height:0px;
+    width:100%;
+    max-width:560px; /* Así establecemos el ancho máximo (si lo queremos) */
+    padding-top:56.25%; /* Relación: 16/9 = 56.25% */
+    position:relative;
+}
+/* El iframe se adapta al tamaño del contenedor */
+iframe{
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0px;
+    left:0px;
+    padding: 0;
+}
+
+
+
+
+
+
 
 :root {
     --shadow: rgba(0, 0, 0, 0.8)

@@ -130,7 +130,7 @@ function touchMove(event){
 }
 
 function touchEnd(){
-    cancelAnimationFrame(animationID)   
+    cancelAnimationFrame(animationID)
     isDragging = false
     const movedBy = currenTranslate - prevTranslate
     container.classList.add('grab')
