@@ -377,29 +377,35 @@ img {
 }
 
 
-.videos-container{
+.videos-container {
     display: flex;
     width: 100%;
     height: 100%;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    position: center;
+    text-align: center;
 }
 
-.video{
+video {
     position: center;
     align-items: center;
     text-align: center;
     height: 40em;
     width:100%;
-    max-width:600px;
+    max-width:1600px;
 }
-video{
+video {
     width:100%;
 }
-.delimitador{
+.delimitador {
     width:100%;
     height: 100%;
     margin:auto;
 }
-.contenedor{
+.contenedor {
     height:0px;
     width:100%;
     max-width:560px; /* Así establecemos el ancho máximo (si lo queremos) */
@@ -407,19 +413,14 @@ video{
     position:relative;
 }
 /* El iframe se adapta al tamaño del contenedor */
-iframe{
+iframe {
     position:absolute;
     height:100%;
     width:100%;
     top:0px;
     left:0px;
-    padding: 0;
+    margin: auto;
 }
-
-
-
-
-
 
 
 :root {
@@ -444,7 +445,7 @@ iframe{
 }
 
 
-.string-container img{
+.string-container img {
     width: 100%;
 }
 
@@ -463,7 +464,7 @@ iframe{
 }
 
 
-.cards{
+.cards {
     position: absolute;
     top: 0;
     left: 0;
