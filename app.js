@@ -31,59 +31,8 @@ theme_checkbox.addEventListener("change", function (){
     }
 });
 
-
-
-
-next.addEventListener("click", () => {
-  clearInterval(interval);
-  if (currentImg >= img.length - 1){
-      scrollDirection = false;
-  }else {
-      updateImg(true);
-      scrollDirection = true;
-  }
-  interval = setInterval(() => {
-      updateImg(scrollDirection);
-  }, 3000);
-});
-
-
-prev.addEventListener("click", () => {
-    clearInterval(interval);
-    if (currentImg <= img.length - 1){
-        updateImg(false);
-        scrollDirection= false;
-    } else {
-        scrollDirection = false;
-    }
-    interval = setInterval(() => {
-        updateImg(scrollDirection);
-    }, 3000)
-});
-
-
-interval = setInterval(() => {
-    updateImg(scrollDirection);
-}, 2000)
-
-function updateImg(goingRight) {
-    if (goingRight){
-        currentImg++;
-    }
-    if (!goingRight){
-        currentImg--;
-    }
-    if (currentImg >= img.length -1  && goingRight){
-        scrollDirection = false;
-    } else if (currentImg <= 0 && !goingRight){
-        scrollDirection = true;
-    }
-    imgContainer.style.transform = `translateX(-${(currentImg) * 40}em)`;
-}
-
-
 const container = document.querySelector(".cards");
- slider = Array.from(document.querySelectorAll('.string-img-container'))
+slider = Array.from(document.querySelectorAll('.string-img-container'))
 
 let isDragging = false,
     startPos = 0,
@@ -158,6 +107,57 @@ function setPositionByIndex(){
 
 function  setSliderPosition(){
     container.style.transform = `translateX(${currenTranslate}px)`
+}
+
+
+
+
+
+next.addEventListener("click", () => {
+  clearInterval(interval);
+  if (currentImg >= img.length - 1){
+      scrollDirection = false;
+  }else {
+      updateImg(true);
+      scrollDirection = true;
+  }
+  interval = setInterval(() => {
+      updateImg(scrollDirection);
+  }, 3000);
+});
+
+
+prev.addEventListener("click", () => {
+    clearInterval(interval);
+    if (currentImg <= img.length - 1){
+        updateImg(false);
+        scrollDirection= false;
+    } else {
+        scrollDirection = false;
+    }
+    interval = setInterval(() => {
+        updateImg(scrollDirection);
+    }, 3000)
+});
+
+
+interval = setInterval(() => {
+    updateImg(scrollDirection);
+}, 2000)
+
+function updateImg(goingRight) {
+    if (goingRight){
+        currentImg++;
+    }
+    if (!goingRight){
+        currentImg--;
+    }
+    if (currentImg >= img.length -1  && goingRight){
+        scrollDirection = false;
+    } else if (currentImg <= 0 && !goingRight){
+        scrollDirection = true;
+    }
+    imgContainer.style.transform = `translateX(-${(currentImg) * 40}em)`;
 }
 
 
@@ -256,10 +256,10 @@ if (typeof slideshow === 'object') {
     let last = false;
     let timeout = false;
     let speed = slideshow.speed || 3000;
-    let all = slideshow.media.length
+    let all = slideshow.media.length;
 
     function validatecounter() {
-        autoplay.innerHTML = autoincrease ? "▶️" : '⏸';
+        autoplay.innerHTML = autoincrease ? "▶️" : '🔁';
         if (restart) {
             if (counter < 0) counter = all - 1;
             counter = counter % all;
