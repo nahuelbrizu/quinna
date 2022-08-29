@@ -5,6 +5,8 @@ const prev = document.querySelector(".prev");
 const imgContainer = document.querySelector(".container-image");
 const img = imgContainer.querySelectorAll("img");
 
+/* slider video */
+
 let currentImg = 0;
 let interval;
 let scrollDirection = true;
@@ -25,7 +27,7 @@ theme_checkbox.addEventListener("change", function (){
         localStorage.setItem("theme", "dark");
     } else {
         document.documentElement.removeAttribute("data-theme");
-        localStorage.removeItem("data-theme")
+        localStorage.removeItem("theme")
     }
 });
 
@@ -45,6 +47,7 @@ next.addEventListener("click", () => {
   }, 3000);
 });
 
+
 prev.addEventListener("click", () => {
     clearInterval(interval);
     if (currentImg <= img.length - 1){
@@ -57,6 +60,7 @@ prev.addEventListener("click", () => {
         updateImg(scrollDirection);
     }, 3000)
 });
+
 
 interval = setInterval(() => {
     updateImg(scrollDirection);
@@ -76,6 +80,7 @@ function updateImg(goingRight) {
     }
     imgContainer.style.transform = `translateX(-${(currentImg) * 40}em)`;
 }
+
 
 const container = document.querySelector(".cards");
  slider = Array.from(document.querySelectorAll('.string-img-container'))
@@ -233,7 +238,128 @@ function updateTestimonial() {
 
 setInterval(updateTestimonial, 10000)
 
+if (typeof slideshow === 'object') {
+    let styles = document.createElement('link');
+    styles.rel="stylesheet";
+    styles.href="slideshow.css";
+    document.head.appendChild(styles);
+    const out = document.querySelector('.slideshow-info');
+    const wrapper = document.querySelector('.slideshow-wrapper');
+    const next = document.querySelector('#slideshow-next');
+    const prev = document.querySelector('#slideshow-prev');
+    const autoplay = document.querySelector('#slideshow-autoplay');
+    let hash = 'counter' + slideshow.folder;
+    let counter = localStorage.getItem(hash)||0;
+    let autoincrease = slideshow.autoplay === 'no' ? false : true;
+    let restart = slideshow.endless === 'no' ? false : true;
+    let first = false;
+    let last = false;
+    let timeout = false;
+    let speed = slideshow.speed || 3000;
+    let all = slideshow.media.length
 
+    function validatecounter() {
+        autoplay.innerHTML = autoincrease ? "▶️" : '⏸';
+        if (restart) {
+            if (counter < 0) counter = all - 1;
+            counter = counter % all;
+        } else {
+            if (counter <= 0) {
+                counter = 0;
+            }
+            if (counter === all) counter = all - 1;
+        }
+        if (!restart) {
+            first = counter === 0;
+            last = counter === all - 1;
+            if (counter === 0) {
+                prev.classList.add('hidden');
+            } else {
+                prev.classList.remove('hidden');
+            }
+            if (counter === all - 1) {
+                next.classList.add('hidden');
+                autoplay.classList.add('hidden');
+            } else {
+                next.classList.remove('hidden');
+                autoplay.classList.remove('hidden');
+            }
+        }
+
+        localStorage.setItem(hash,counter);
+        show();
+    }
+    function show() {
+        clearTimeout(timeout);
+        out.innerHTML = `${slideshow.media[counter]} ${counter+1}/${all}`;
+        wrapper.innerHTML = '';
+        wrapper.dataset.loaded = 'false';
+
+        if(slideshow.media[counter].endsWith('.mp4')) {
+            wrapper.style.backgroundImage = ``;
+            let vid = document.createElement('video');
+            vid.setAttribute('loop','true');
+            vid.setAttribute('autoplay','true');
+            vid.setAttribute('src', slideshow.folder + slideshow.media[counter]);
+            if (wrapper.dataset.loaded === 'false') {
+                vid.addEventListener('canplaythrough', ev => {
+                    wrapper.appendChild(vid);
+                    loaded();
+                },{passive:true});
+            }
+        } else {
+            wrapper.innerHTML = ' ';
+            let url = slideshow.folder + slideshow.media[counter];
+            let i = new Image();
+            i.src = url;
+            i.onload = function() {
+                wrapper.style.backgroundImage = `url(${url})`;
+                loaded();
+            }
+        }
+    }
+    function loaded() {
+        wrapper.dataset.loaded = 'true';
+        if (autoincrease && !last) {
+            timeout = window.setTimeout(function(){
+                counter++;
+                validatecounter();
+            },speed);
+        }
+    }
+    function nextSlide() {
+        if(!last) {
+            counter++;
+            autoincrease = false;
+            validatecounter();
+        }
+    };
+    function prevSlide() {
+        if(!first) {
+            counter--;
+            autoincrease = false;
+            validatecounter();
+        }
+    };
+    function toggleAuto() {
+        autoincrease = !autoincrease;
+        validatecounter();
+    };
+    next.addEventListener('click', nextSlide);
+    prev.addEventListener('click', prevSlide);
+    autoplay.addEventListener('click',toggleAuto);
+    document.addEventListener('keyup', ev => {
+        ev.preventDefault();
+        if (ev.key === "ArrowRight") { nextSlide(); }
+        if (ev.key === "ArrowUp") { history.back(); }
+        if (ev.key === "ArrowLeft") { prevSlide(); }
+        if (ev.key === " ") { toggleAuto(); }
+    });
+    validatecounter();
+} else {
+    console.error('define el objeto slideshow');
+    document.body.innerHTML = "⚠️ Can't find slideshow object"
+}
 
 
 

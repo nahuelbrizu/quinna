@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Quinna Handpan</title>
+    <title>Quinna Handpand</title>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -23,12 +23,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet"  href="style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 <header>
 
 <div class="nav-main">
-<nav class="nav-container">
+    <nav class="nav-container">
         <div class="nav-header">
             <img src="img/logo.png" alt="logo" class="logo">
             <h3>Quinna Handpan</h3>
@@ -53,7 +54,7 @@
 <main>
 
    <div class="container-slider"  id="nosotros">
-       <h1 id="h1-slider">QuiNNaa</h1>
+
        <div class="container-slider-2">
            <div class="container-image">
                <img src="./img/quinnaCard.jpeg" alt="imageC">
@@ -75,70 +76,44 @@
                <button class="fas fa-angle-double-left btn prev" id="btnNext"></button>
                <button class="fas fa-angle-right btn next" id="btnPrev"></button>
        </div>
-   </div>
 
+   </div>
+</div>
     <div class="text-container" >
-        <h2>.Text blabla.</h2>
         <p class="text">
-            laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
-            sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
-            aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
-            accusantium consectetur culpa necessitatibus sint cum perspiciatis
-            laboriosam sequi praesentium, eos numquam! Eum, officia fugiat
-            reprehenderit eligendi itaque similique! Harum, quod vitae explicabo
-            sint ad illum expedita quisquam earum? Necessitatibus illo tempore
-            sapiente commodi quae, qui quasi odit fugiat impedit mollitia eveniet
-            maiores?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla tempore
-            explicabo veritatis dignissimos accusantium nostrum voluptatum qui
-            labore, natus mollitia voluptatem. Ipsa ducimus eos saepe expedita ex
-            laboriosam optio omnis amet, qui veritatis unde aut tempora. Fuga et
-            sint autem amet, modi, veniam dolorum placeat blanditiis rerum doloribus
-            aliquid voluptas. Alias voluptatum id vel minima voluptates assumenda
-            accusantium consectetur culpa necessitatibus sint cum perspiciatis
-            laboriosam sequi praesentium, eos numquam! Eum, officia fugiat
-            reprehenderit eligendi itaque similique! Harum, quod vitae explicabo
-            sint ad illum expedita quisquam earum? Necessitatibus illo tempore
-            sapiente commodi quae, qui quasi odit fugiat impedit mollitia eveniet
-            maiores?
+            Somos Quimey e Ignacio, dos primos que llevamos a cabo este maravilloso proceso
+            de convertir el acero crudo y frío en dulce y cálido sonido.
+            Desde muy jóvenes nos conectamos con amor a la música, a través de los instrumentos y la luthería. Así, con el paso del tiempo, se convirtió en un proyecto y un estilo de vida.
+            La experimentación y la constante búsqueda de sonidos, nos llevó a este hermoso camino de los Handpands que elegimos transitar cada día y disfrutar al máximo. Cada golpe en nuestras piezas, está cargado de la energía y felicidad de dedicarnos a lo que verdaderamente nos gusta, disfrutamos y aspiramos en la vida, traduciéndolo en una pieza hermosa, tanto musical como artesanal, como es el Handpan.
+            Nos gusta experimentar y estar en  constante búsqueda de nuevos métodos y formas de llevar a cabo distintos procesos, para que todas nuestras piezas sean únicas.
+            Gracias a Nahuel, nuestro querido hermano y primo, por hacer posible la existencia de esta página y a todas las personas que nos acompañan y ayudan en este camino.
         </p>
     </div>
-</div>
-    <h1>Videos </h1>
-<div class="videos-container">
-    <div class="delimitador">
-        <div class="contenedor">
-            <iframe src="img/videos/video7.mp4"></iframe>
-        </div>
-        <div class="contenedor">
-            <iframe src="img/videos/video8.mp4"></iframe>
-        </div>
-    </div>
 
-    <div class="delimitador">
-        <div class="contenedor">
-            <iframe src="img/videos/video9.mp4"></iframe>
-        </div>
-        <div class="contenedor">
-            <iframe src="img/videos/video10.mp4"></iframe>
-        </div>
-    </div>
-    <div class="delimitador">
-        <div class="contenedor">
-            <iframe src="img/videos/video3.mp4"></iframe>
-        </div>
-        <div class="contenedor">
-            <iframe src="img/videos/video4.mp4"></iframe>
-        </div>
-    </div>
-    <div class="delimitador">
-        <div class="contenedor">
-            <iframe src="img/videos/video5.mp4"></iframe>
-        </div>
-        <div class="contenedor">
-            <iframe src="img/videos/video6.mp4"></iframe>
-        </div>
-    </div>
+
+
+<div class="slideshow-container">
+    <div class="slideshow-info"></div>
+    <div class="slideshow-docs"> back/forward.
+        <span>space to toggle autoplay</span></div>
+    <button id="slideshow-next">▶</button>
+    <button id="slideshow-prev">◀</button>
+    <button id="slideshow-autoplay"></button>
+    <div class="slideshow-wrapper"></div>
 </div>
+    <script>
+        let slideshow = {
+            media: [
+                "video1.mp4", "video2.mp4","video3.mp4","video4.mp4",
+                "video5.mp4","video6.mp4","video7.mp4","video8.mp4",
+                "video9.mp4","video10.mp4",
+            ],
+            folder: './img/videos/',
+            autoplay: 'yes',
+            endless: 'yes'
+        }
+    </script>
+
 
 
 
