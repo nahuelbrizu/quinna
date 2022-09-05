@@ -89,9 +89,8 @@ function touchEnd() {
     container.classList.add('grab')
 
     if (movedBy < -100 && currentIndex < slider.length - 1) currentIndex += 1
-    if (movedBy > 100 && currentIndex > 0) currentIndex -= 1
+    if (movedBy > 100 && currentIndex > 0) currentIndex - 1
     setPositionByIndex()
-    container.classList.remove('grabbing')
 }
 
 function animation() {
