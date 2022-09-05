@@ -243,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     next.addEventListener("click", () => {
         clearInterval(interval);
+        console.log(currentVid)
         if (currentVid >= videos.length) {
             scrollDirection = false;
         } else {
@@ -253,11 +254,16 @@ document.addEventListener('DOMContentLoaded', () => {
             updateVid(scrollDirection);
         }, 3000);
     });
+
+
     prev.addEventListener("click", () => {
         clearInterval(interval);
+        console.log(currentVid)
 
         if (currentVid <= videos.length) {
+            updateVid(false);
             scrollDirection = false;
+
         } else {
             scrollDirection = false;
         }
@@ -274,9 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateVid(vidRight) {
         if (vidRight) {
             currentVid++;
-        }
-        if (!vidRight) {
+
+        }  if (!vidRight) {
             currentVid--;
+
         }
         if (currentVid >= videos.length && vidRight) {
             scrollDirection = false;
