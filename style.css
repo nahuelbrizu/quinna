@@ -253,12 +253,14 @@ h2 {
     color: var(--color-text);
 }
 p {
-    margin-top: 10px;
+    font-size: 1.5em;
     margin-bottom: 1rem;
+    padding: initial;
     color: var(--color-text);
 }
 p, p{
     margin-top: 10px;
+    margin-inside: 10px;
     margin-bottom: 1rem;
     color: var(--color-text);
 }
@@ -295,10 +297,9 @@ h1, h1 {
 }
 
 .text-container {
-    padding-top: 5em;
+    padding-top: 2em;
     border-radius: 10px;
     text-align: center;
-    height: 34em;
     color: var(--color-text);
 }
 
@@ -310,7 +311,7 @@ h1, h1 {
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding: 14em;
+    padding-top: 4em;
 }
 #h1-slider{
     margin: 1.5em;
@@ -355,8 +356,8 @@ h1, h1 {
 }
 .text {
     margin: 50px 20%;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
+    font-family: "Poppins", 'Roboto', "Segoe UI","robo Tahoma", Tahoma, Geneva, Verdana, sans-serif;;
+    text-align: initial;
     color: var(--color-text);
 }
 
@@ -466,6 +467,7 @@ video {
     flex-direction: column;
     flex-wrap: wrap;
     align-content: space-around;
+    padding-block-end: 15em;
 }
 
 .string-container img {
@@ -475,7 +477,7 @@ video {
 .string-img-container {
     position: relative;
     width: 70em;
-    height: 40em;
+    height: 50em;
     overflow: hidden;
     border-radius: 10px;
     scrollbar-width: none;

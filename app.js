@@ -159,7 +159,7 @@ next.addEventListener("click", () => {
 
 
 
-    const testimonial = document.querySelector('.testimonial')
+const testimonial = document.querySelector('.testimonial')
 const userImage = document.querySelector('.user-image')
 const username = document.querySelector('.username')
 const role = document.querySelector('.role')
@@ -284,12 +284,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }  if (!vidRight) {
             currentVid--;
         }
-        if (currentVid >= videos.length -1 && vidRight) {
+        if (currentVid >= videos.length  && vidRight) {
             scrollDirection = false;
         } else if (currentVid <= 0 && !vidRight) {
             scrollDirection = true;
         }
-        vidContainer.style.transform = `translateX(-${(currentVid) * 25}em)`;
+        vidContainer.style.transform = `translateX(-${(currentVid) * 37}em)`;
     }
 
 })
