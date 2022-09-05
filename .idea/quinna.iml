@@ -14,5 +14,7 @@
     <orderEntry type="library" name="@emailjs/browser" level="application" />
     <orderEntry type="library" name="jquery-1.11.2" level="application" />
     <orderEntry type="library" name="jquery-3.4.1" level="application" />
+    <orderEntry type="library" name="vlitejs" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>

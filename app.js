@@ -5,7 +5,6 @@ const prev = document.querySelector(".prev");
 const imgContainer = document.querySelector(".container-image");
 const img = imgContainer.querySelectorAll("img");
 
-/* slider video */
 
 let currentImg = 0;
 let interval;
@@ -21,9 +20,9 @@ if (theme) {
     }
 }
 
-theme_checkbox.addEventListener("change", function (){
-    if (this.checked){
-        document.documentElement.setAttribute("data-theme", "dark" );
+theme_checkbox.addEventListener("change", function () {
+    if (this.checked) {
+        document.documentElement.setAttribute("data-theme", "dark");
         localStorage.setItem("theme", "dark");
     } else {
         document.documentElement.removeAttribute("data-theme");
@@ -50,7 +49,7 @@ slider.forEach((slide, index) => {
     slide.addEventListener('touchmove', touchMove)
 
     slide.addEventListener('mousedown', touchStart(index))
-    slide.addEventListener('mouseup',touchEnd)
+    slide.addEventListener('mouseup', touchEnd)
     slide.addEventListener('mousemove', touchMove)
     slide.addEventListener('mouseleave', touchEnd)
 })
@@ -62,11 +61,11 @@ window.oncontextmenu = function (event) {
     return false
 }
 
-function getPositionX(event){
+function getPositionX(event) {
     return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX
 }
 
-function touchStart(index){
+function touchStart(index) {
     return function (event) {
         currentIndex = index
         startPos = getPositionX(event)
@@ -76,62 +75,59 @@ function touchStart(index){
     }
 }
 
-function touchMove(event){
-    if (isDragging){
+function touchMove(event) {
+    if (isDragging) {
         const currentPosition = getPositionX(event)
         currenTranslate = prevTranslate + currentPosition - startPos
     }
 }
 
-function touchEnd(){
+function touchEnd() {
     cancelAnimationFrame(animationID)
     isDragging = false
     const movedBy = currenTranslate - prevTranslate
     container.classList.add('grab')
 
-    if (movedBy < -100 && currentIndex < slider.length -1) currentIndex += 1
+    if (movedBy < -100 && currentIndex < slider.length - 1) currentIndex += 1
     if (movedBy > 100 && currentIndex > 0) currentIndex -= 1
     setPositionByIndex()
     container.classList.remove('grabbing')
 }
 
-function animation(){
+function animation() {
     setSliderPosition()
     if (isDragging) requestAnimationFrame(animation)
 }
 
-function setPositionByIndex(){
+function setPositionByIndex() {
     prevTranslate = currenTranslate
     setSliderPosition()
 }
 
-function  setSliderPosition(){
+function setSliderPosition() {
     container.style.transform = `translateX(${currenTranslate}px)`
 }
 
 
-
-
-
 next.addEventListener("click", () => {
-  clearInterval(interval);
-  if (currentImg >= img.length - 1){
-      scrollDirection = false;
-  }else {
-      updateImg(true);
-      scrollDirection = true;
-  }
-  interval = setInterval(() => {
-      updateImg(scrollDirection);
-  }, 3000);
+    clearInterval(interval);
+    if (currentImg >= img.length - 1) {
+        scrollDirection = false;
+    } else {
+        updateImg(true);
+        scrollDirection = true;
+    }
+    interval = setInterval(() => {
+        updateImg(scrollDirection);
+    }, 3000);
 });
 
 
 prev.addEventListener("click", () => {
     clearInterval(interval);
-    if (currentImg <= img.length - 1){
+    if (currentImg <= img.length - 1) {
         updateImg(false);
-        scrollDirection= false;
+        scrollDirection = false;
     } else {
         scrollDirection = false;
     }
@@ -146,21 +142,19 @@ interval = setInterval(() => {
 }, 2000)
 
 function updateImg(goingRight) {
-    if (goingRight){
+    if (goingRight) {
         currentImg++;
     }
-    if (!goingRight){
+    if (!goingRight) {
         currentImg--;
     }
-    if (currentImg >= img.length -1  && goingRight){
+    if (currentImg >= img.length - 1 && goingRight) {
         scrollDirection = false;
-    } else if (currentImg <= 0 && !goingRight){
+    } else if (currentImg <= 0 && !goingRight) {
         scrollDirection = true;
     }
     imgContainer.style.transform = `translateX(-${(currentImg) * 40}em)`;
 }
-
-
 
 
 const testimonial = document.querySelector('.testimonial')
@@ -222,8 +216,7 @@ const testimonials = [
 let idx = 1
 
 function updateTestimonial() {
-    const { name, position, photo, text } = testimonials[idx]
-
+    const {name, position, photo, text} = testimonials[idx]
     testimonial.innerHTML = text
     userImage.src = photo
     username.innerHTML = name
@@ -236,136 +229,69 @@ function updateTestimonial() {
     }
 }
 
-setInterval(updateTestimonial, 10000)
+setInterval(updateTestimonial, 10000);
 
-if (typeof slideshow === 'object') {
-    let styles = document.createElement('link');
-    styles.rel="stylesheet";
-    styles.href="slideshow.css";
-    document.head.appendChild(styles);
-    const out = document.querySelector('.slideshow-info');
-    const wrapper = document.querySelector('.slideshow-wrapper');
+
+document.addEventListener('DOMContentLoaded', () => {
     const next = document.querySelector('#slideshow-next');
     const prev = document.querySelector('#slideshow-prev');
-    const autoplay = document.querySelector('#slideshow-autoplay');
-    let hash = 'counter' + slideshow.folder;
-    let counter = localStorage.getItem(hash)||0;
-    let autoincrease = slideshow.autoplay === 'no' ? false : true;
-    let restart = slideshow.endless === 'no' ? false : true;
-    let first = false;
-    let last = false;
-    let timeout = false;
-    let speed = slideshow.speed || 3000;
-    let all = slideshow.media.length;
+    const vidContainer = document.querySelector(".video-container");
+    const videos = vidContainer.querySelectorAll('video');
+    let currentVid = 0;
+    let interval;
+    let scrollDirection = true;
 
-    function validatecounter() {
-        autoplay.innerHTML = autoincrease ? "▶️" : '🔁';
-        if (restart) {
-            if (counter < 0) counter = all - 1;
-            counter = counter % all;
+    next.addEventListener("click", () => {
+        clearInterval(interval);
+        if (currentVid >= videos.length) {
+            scrollDirection = false;
         } else {
-            if (counter <= 0) {
-                counter = 0;
-            }
-            if (counter === all) counter = all - 1;
+            updateVid(true);
+            scrollDirection = true;
         }
-        if (!restart) {
-            first = counter === 0;
-            last = counter === all - 1;
-            if (counter === 0) {
-                prev.classList.add('hidden');
-            } else {
-                prev.classList.remove('hidden');
-            }
-            if (counter === all - 1) {
-                next.classList.add('hidden');
-                autoplay.classList.add('hidden');
-            } else {
-                next.classList.remove('hidden');
-                autoplay.classList.remove('hidden');
-            }
-        }
-
-        localStorage.setItem(hash,counter);
-        show();
-    }
-    function show() {
-        clearTimeout(timeout);
-        out.innerHTML = `${slideshow.media[counter]} ${counter+1}/${all}`;
-        wrapper.innerHTML = '';
-        wrapper.dataset.loaded = 'false';
-
-        if(slideshow.media[counter].endsWith('.mp4')) {
-            wrapper.style.backgroundImage = ``;
-            let vid = document.createElement('video');
-            vid.setAttribute('loop','true');
-            vid.setAttribute('autoplay','true');
-            vid.setAttribute('src', slideshow.folder + slideshow.media[counter]);
-            if (wrapper.dataset.loaded === 'false') {
-                vid.addEventListener('canplaythrough', ev => {
-                    wrapper.appendChild(vid);
-                    loaded();
-                },{passive:true});
-            }
-        } else {
-            wrapper.innerHTML = ' ';
-            let url = slideshow.folder + slideshow.media[counter];
-            let i = new Image();
-            i.src = url;
-            i.onload = function() {
-                wrapper.style.backgroundImage = `url(${url})`;
-                loaded();
-            }
-        }
-    }
-    function loaded() {
-        wrapper.dataset.loaded = 'true';
-        if (autoincrease && !last) {
-            timeout = window.setTimeout(function(){
-                counter++;
-                validatecounter();
-            },speed);
-        }
-    }
-    function nextSlide() {
-        if(!last) {
-            counter++;
-            autoincrease = false;
-            validatecounter();
-        }
-    };
-    function prevSlide() {
-        if(!first) {
-            counter--;
-            autoincrease = false;
-            validatecounter();
-        }
-    };
-    function toggleAuto() {
-        autoincrease = !autoincrease;
-        validatecounter();
-    };
-    next.addEventListener('click', nextSlide);
-    prev.addEventListener('click', prevSlide);
-    autoplay.addEventListener('click',toggleAuto);
-    document.addEventListener('keyup', ev => {
-        ev.preventDefault();
-        if (ev.key === "ArrowRight") { nextSlide(); }
-        if (ev.key === "ArrowUp") { history.back(); }
-        if (ev.key === "ArrowLeft") { prevSlide(); }
-        if (ev.key === " ") { toggleAuto(); }
+        interval = setInterval(() => {
+            updateVid(scrollDirection);
+        }, 3000);
     });
-    validatecounter();
-} else {
-    console.error('define el objeto slideshow');
-    document.body.innerHTML = "⚠️ Can't find slideshow object"
-}
+    prev.addEventListener("click", () => {
+        clearInterval(interval);
 
+        if (currentVid <= videos.length) {
+            scrollDirection = false;
+        } else {
+            scrollDirection = false;
+        }
+        interval = setInterval(() => {
+            updateVid(scrollDirection);
+        }, 3000)
+    });
+
+
+    interval = setInterval(() => {
+        updateImg(scrollDirection);
+    }, 2000)
+
+    function updateVid(vidRight) {
+        if (vidRight) {
+            currentVid++;
+        }
+        if (!vidRight) {
+            currentVid--;
+        }
+        if (currentVid >= videos.length && vidRight) {
+            scrollDirection = false;
+        } else if (currentVid <= 0 && !vidRight) {
+            scrollDirection = true;
+        }
+        vidContainer.style.transform = `translateX(-${(currentVid) * 25}em)`;
+    }
+
+})
 
 
 const btnForm = document.getElementById("btn-form");
 
-document.getElementById("form").addEventListener('submit', function (e){
+document.getElementById("form").addEventListener('submit', function (e) {
     e.preventDefault();
     btnForm.value = 'Enviando...';
 
@@ -373,11 +299,11 @@ document.getElementById("form").addEventListener('submit', function (e){
     const templateId = 'template_i8ftxu7';
 
     emailjs.sendForm(serviceId, templateId, this)
-        .then( () => {
+        .then(() => {
             btnForm.value = 'Send Email';
             alert('Mensaje enviado!');
         }, (err) => {
-         btnForm.value = 'Send Email';
-         alert(JSON.stringify(err))
-    });
+            btnForm.value = 'Send Email';
+            alert(JSON.stringify(err))
+        });
 });

@@ -10,6 +10,10 @@
             integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
             crossorigin="anonymous"
     />
+    <link href="https://cdn.jsdelivr.net/npm/vlitejs@4/dist/vlite.css" rel="stylesheet" crossorigin />
+    <script src="https://cdn.jsdelivr.net/npm/vlitejs@4" crossorigin></script>
+    <script src="https://cdn.jsdelivr.net/npm/vlitejs@4.1.2/dist/plugins/pip.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vlitejs@4.1.2/dist/plugins"></script>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -32,7 +36,7 @@
     <nav class="nav-container">
         <div class="nav-header">
             <img src="img/logo.png" alt="logo" class="logo">
-            <h3>Quinna Handpan</h3>
+            <h3>Quinna Handpand</h3>
         </div>
          <ul class="menu" >
         <li>
@@ -54,7 +58,6 @@
 <main>
 
    <div class="container-slider"  id="nosotros">
-
        <div class="container-slider-2">
            <div class="container-image">
                <img src="./img/quinnaCard.jpeg" alt="imageC">
@@ -72,13 +75,10 @@
                <img src="./img/tapaArribaPulida.jpeg" alt="imageC">
                <img src="./img/herramientas.jpeg" alt="imageC">
            </div>
-
-               <button class="fas fa-angle-double-left btn prev" id="btnNext"></button>
-               <button class="fas fa-angle-right btn next" id="btnPrev"></button>
+               <button class="fas fa-angle-double-left btn prev" id="btnNext">▶</button>
+               <button class="fas fa-angle-right btn next" id="btnPrev">◀</button>
        </div>
-
    </div>
-</div>
     <div class="text-container" >
         <p class="text">
             Somos Quimey e Ignacio, dos primos que llevamos a cabo este maravilloso proceso
@@ -93,26 +93,63 @@
 
 
 <div class="slideshow-container">
-    <div class="slideshow-info"></div>
-    <div class="slideshow-docs"> back/forward.
-        <span>space to toggle autoplay</span></div>
+    <div class="slideshow-wrapper">
+        <div class="video-container">
+        <video  controls class="player" id="player1" height="100%"
+               width="100%" loop muted
+               preload="auto" src="/img/videos/video1.mp4"
+               style="max-width: 100%" tabindex="0" title="MediaElement">
+        </video>
+        <video  controls class="player" id="player2" height="100%"
+               width="100%" loop muted
+               preload="auto" src="/img/videos/video2.mp4"
+               style="max-width: 100%" tabindex="0" title="MediaElement">
+        </video>
+        <video  controls class="player" id="player3" height="100%"
+               width="100%" loop muted
+               preload="auto" src="/img/videos/video3.mp4"
+               style="max-width: 100%" tabindex="0" title="MediaElement">
+        </video>
+        <video  controls class="player" id="player4" height="100%"
+                width="100%" loop muted
+                preload="auto" src="/img/videos/video4.mp4"
+                style="max-width: 100%" tabindex="0" title="MediaElement">
+        </video>
+        <video  controls class="player" id="player5" height="100%"
+                width="100%" loop muted
+                preload="auto" src="/img/videos/video5.mp4"
+                style="max-width: 100%" tabindex="0" title="MediaElement">
+        </video>
+            <video  controls class="player" id="player6" height="100%"
+                    width="100%" loop muted
+                    preload="auto" src="/img/videos/video6.mp4"
+                    style="max-width: 100%" tabindex="0" title="MediaElement">
+            </video>
+            <video  controls class="player" id="player7" height="100%"
+                    width="100%" loop muted
+                    preload="auto" src="/img/videos/video7.mp4"
+                    style="max-width: 100%" tabindex="0" title="MediaElement">
+            </video>
+            <video  controls class="player" id="player8" height="100%"
+                    width="100%" loop muted
+                    preload="auto" src="/img/videos/video8.mp4"
+                    style="max-width: 100%" tabindex="0" title="MediaElement">
+            </video>
+            <video  controls class="player" id="player9" height="100%"
+                    width="100%" loop muted
+                    preload="auto" src="/img/videos/video9.mp4"
+                    style="max-width: 100%" tabindex="0" title="MediaElement">
+            </video>
+            <video  controls class="player" id="player10" height="100%"
+                    width="100%" loop muted
+                    preload="auto" src="/img/videos/video10.mp4"
+                    style="max-width: 100%" tabindex="0" title="MediaElement">
+            </video>
+        </div>
     <button id="slideshow-next">▶</button>
     <button id="slideshow-prev">◀</button>
-    <button id="slideshow-autoplay"></button>
-    <div class="slideshow-wrapper"></div>
+    </div>
 </div>
-    <script>
-        let slideshow = {
-            media: [
-                "video1.mp4", "video2.mp4","video3.mp4","video4.mp4",
-                "video5.mp4","video6.mp4","video7.mp4","video8.mp4",
-                "video9.mp4","video10.mp4",
-            ],
-            folder: './img/videos/',
-            autoplay: 'yes',
-            endless: 'no'
-        }
-    </script>
 
 
 
