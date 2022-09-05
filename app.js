@@ -245,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     next.addEventListener("click", () => {
         clearInterval(interval);
-        console.log(currentVid)
         if (currentVid >= videos.length - 1) {
             scrollDirection = false;
         } else {
@@ -260,8 +259,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     prev.addEventListener("click", () => {
         clearInterval(interval);
-        console.log(currentVid)
-
         if (currentVid <= videos.length) {
             updateVid(false);
             scrollDirection = false;
