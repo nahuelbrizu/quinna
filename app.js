@@ -110,54 +110,56 @@ function setSliderPosition() {
 
 
 next.addEventListener("click", () => {
-    clearInterval(interval);
-    if (currentImg >= img.length - 1) {
-        scrollDirection = false;
-    } else {
-        updateImg(true);
-        scrollDirection = true;
-    }
+        clearInterval(interval);
+        if (currentImg >= img.length - 1){
+            scrollDirection = false;
+        }else {
+            updateImg(true);
+            scrollDirection = true;
+        }
+        interval = setInterval(() => {
+            updateImg(scrollDirection);
+        }, 3000);
+    });
+
+
+    prev.addEventListener("click", () => {
+        clearInterval(interval);
+        if (currentImg <= img.length - 1){
+            updateImg(false);
+            scrollDirection= false;
+        } else {
+            scrollDirection = false;
+        }
+        interval = setInterval(() => {
+            updateImg(scrollDirection);
+        }, 3000)
+    });
+
+
     interval = setInterval(() => {
         updateImg(scrollDirection);
-    }, 3000);
-});
+    }, 2000)
 
-
-prev.addEventListener("click", () => {
-    clearInterval(interval);
-    if (currentImg <= img.length - 1) {
-        updateImg(false);
-        scrollDirection = false;
-    } else {
-        scrollDirection = false;
+    function updateImg(goingRight) {
+        if (goingRight){
+            currentImg++;
+        }
+        if (!goingRight){
+            currentImg--;
+        }
+        if (currentImg >= img.length -1  && goingRight){
+            scrollDirection = false;
+        } else if (currentImg <= 0 && !goingRight){
+            scrollDirection = true;
+        }
+        imgContainer.style.transform = `translateX(-${(currentImg) * 40}em)`;
     }
-    interval = setInterval(() => {
-        updateImg(scrollDirection);
-    }, 3000)
-});
 
 
-interval = setInterval(() => {
-    updateImg(scrollDirection);
-}, 2000)
-
-function updateImg(goingRight) {
-    if (goingRight) {
-        currentImg++;
-    }
-    if (!goingRight) {
-        currentImg--;
-    }
-    if (currentImg >= img.length - 1 && goingRight) {
-        scrollDirection = false;
-    } else if (currentImg <= 0 && !goingRight) {
-        scrollDirection = true;
-    }
-    imgContainer.style.transform = `translateX(-${(currentImg) * 40}em)`;
-}
 
 
-const testimonial = document.querySelector('.testimonial')
+    const testimonial = document.querySelector('.testimonial')
 const userImage = document.querySelector('.user-image')
 const username = document.querySelector('.username')
 const role = document.querySelector('.role')
@@ -244,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     next.addEventListener("click", () => {
         clearInterval(interval);
         console.log(currentVid)
-        if (currentVid >= videos.length) {
+        if (currentVid >= videos.length - 1) {
             scrollDirection = false;
         } else {
             updateVid(true);
@@ -263,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentVid <= videos.length) {
             updateVid(false);
             scrollDirection = false;
-
         } else {
             scrollDirection = false;
         }
@@ -274,18 +275,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     interval = setInterval(() => {
-        updateImg(scrollDirection);
+        updateVid(scrollDirection);
     }, 2000)
 
     function updateVid(vidRight) {
         if (vidRight) {
             currentVid++;
-
         }  if (!vidRight) {
             currentVid--;
-
         }
-        if (currentVid >= videos.length && vidRight) {
+        if (currentVid >= videos.length -1 && vidRight) {
             scrollDirection = false;
         } else if (currentVid <= 0 && !vidRight) {
             scrollDirection = true;
