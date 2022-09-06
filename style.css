@@ -475,10 +475,10 @@ video {
 }
 
 .string-img-container {
-    position: relative;
-    width: 147em;
+    position: inherit;
+    width: 132em;
     height: 60em;
-    overflow: revert;
+    overflow: auto;
     border-radius: 10px;
     scrollbar-width: none;
     transform: translateX(0);
@@ -490,7 +490,7 @@ video {
 
 .cards {
     position: absolute;
-    top: 10%;
+    top: 0;
     left: 0;
     display: -webkit-inline-box;
     grid-template-columns: repeat(6, 300px);
