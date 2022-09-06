@@ -279,15 +279,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000)
 
     function updateVid(vidRight) {
-        console.log(vidRight);
-        console.log("--------------");
-        console.log(currentVid)
         if (vidRight) {
             currentVid++;
         }  if (!vidRight) {
             currentVid--;
         }
-        if (currentVid >= videos.length - 4  && vidRight) {
+        if (currentVid >= videos.length - 5  && vidRight) {
             scrollDirection2 = false;
             updateVid(false);
         } if (currentVid <= (videos.length === 0) && !vidRight) {
