@@ -311,7 +311,7 @@ h1, h1 {
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding-top: 4em;
+    padding-top: 10em;
 }
 #h1-slider{
     margin: 1.5em;
@@ -388,7 +388,7 @@ video {
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding: 6em;
+    padding: 10em;
 }
 .slideshow-wrapper{
     position: relative;
@@ -461,6 +461,7 @@ video {
 
 .string-container {
     min-height: 40em;
+    max-height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -480,17 +481,18 @@ video {
     height: 60em;
     overflow: auto;
     border-radius: 10px;
-    scrollbar-width: none;
+    scrollbar-width: auto;
     transform: translateX(0);
     will-change: transform;
     transition: transform 0.3s ease-out;
     cursor: grab;
+    touch-action: cross-slide-x;
 }
 
 
 .cards {
     position: absolute;
-    top: 0;
+    top: 10em;
     left: 0;
     display: -webkit-inline-box;
     grid-template-columns: repeat(6, 300px);

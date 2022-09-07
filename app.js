@@ -24,9 +24,10 @@ theme_checkbox.addEventListener("change", function () {
     if (this.checked) {
         document.documentElement.setAttribute("data-theme", "dark");
         localStorage.setItem("theme", "dark");
-    } else {
-        document.documentElement.removeAttribute("data-theme");
-        localStorage.removeItem("theme")
+    }
+    else if (this.checked) {
+        document.documentElement.removeAttribute("data-theme", "dark");
+        localStorage.removeItem("theme", "dark");
     }
 });
 
@@ -248,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     next.addEventListener("click", () => {
         clearInterval(interval);
-        if (currentVid >= videos.length - 4) {
+        if (currentVid >= videos.length - 5) {
             scrollDirection2 = false;
         } else {
             updateVid(true);
