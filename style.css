@@ -190,15 +190,15 @@ a {
     z-index: 10;
 }
 
-#btnnext.hidden, #btnprev.hidden, #slideshow-autoplay.hidden,.fa-bars {
+.btnnext.hidden, .btnprev.hidden, #slideshow-autoplay.hidden,.fa-bars {
     display: none;
 }
-#btnnext:focus, #btnprev:focus , .fa-bars:hover{
+.btnnext:focus, #btnprev:focus , .fa-bars:hover{
     border: none;
     color: #014d49;
     outline: none;
 }
-#btnnext {
+.btnnext {
     right: 0;
     height: 10em;
     align-items: center;
@@ -207,7 +207,7 @@ a {
     cursor: pointer;
 }
 
-#btnprev {
+.btnprev {
     left: 0;
     height: 10em;
     align-items: center;
@@ -537,14 +537,14 @@ video {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: var(--primary-color);
     background-clip: border-box;
     border: 0px solid rgba(0,0,0,.125);
     border-radius: 10.25rem;
 }
 
 .card__content{
-    box-shadow: black;
+    box-shadow: rgb(143, 3, 3);
     padding: 0.5rem;
 }
 
