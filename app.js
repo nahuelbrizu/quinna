@@ -179,7 +179,7 @@ const testimonials = [
         name: 'June Cha',
         position: 'Musica En Progreso',
         photo: 'https://randomuser.me/api/portraits/women/44.jpg',
-        text: 'el sonido es buenisimo y su acabado me encata..',
+        text: 'el sonido es buenisimo..',
     },
     {
         name: 'Roberta ',
@@ -291,9 +291,9 @@ document.addEventListener('DOMContentLoaded', () => {
         } if (currentVid <= (videos.length === 0) && !vidRight) {
             scrollDirection2 = true;
         } else if (currentVid >= 10){
-
+            scrollDirection2 = false;
         }
-        vidContainer.style.transform = `translateX(-${(currentVid) * 50}%)`;
+        vidContainer.style.transform = `translateX(-${(currentVid) * 70}%)`;
     }
 })
 
