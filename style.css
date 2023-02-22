@@ -177,15 +177,45 @@ a {
 }
 
 
-.fa-bars {
-    font-size: 1.5rem;
-    color: #000000;
+.btn.next, .btn.prev {
+    position: absolute;
+    top: 5em;
+    width: 40px;
+    text-align: center;
+    font-size: 2em;
+    background: rgba(0,0,0,.2);
+    transform: translateY(-50%);
+    border: none;
+    color: #fff;
+    z-index: 10;
+}
+
+#btnnext.hidden, #btnprev.hidden, #slideshow-autoplay.hidden,.fa-bars {
+    display: none;
+}
+#btnnext:focus, #btnprev:focus , .fa-bars:hover{
+    border: none;
+    color: #014d49;
+    outline: none;
+}
+#btnnext {
+    right: 0;
+    height: 10em;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-0%);
     cursor: pointer;
 }
 
-.fa-bars:hover {
-    color: black;
+#btnprev {
+    left: 0;
+    height: 10em;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-0%);
+    cursor: pointer;
 }
+ 
 
 .menu a {
     color: grey;
@@ -437,9 +467,8 @@ video {
     justify-content: center;
     transform: translateX(-0%);
     cursor: pointer;
-
-
 }
+
 #slideshow-prev {
     left: 0;
     height: 10em;
@@ -447,8 +476,6 @@ video {
     justify-content: center;
     transform: translateX(-0%);
     cursor: pointer;
-
-
 }
 :root {
     --shadow: rgba(0, 0, 0, 0.8)
@@ -728,22 +755,76 @@ p.testimonial {
         padding: 20px 30px;
     }
 
-    .fa-quote {
-        display: none;
-    }
+    
 }
 
 
 
-.my-5 {
-    margin-top: 3rem!important;
-    margin-bottom: 3rem!important;
-    width: 100%;
-    height: 100%;
-}
+
 @media (min-width: 400px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-        max-width: 100%;
+   :root{
+    display: flex;
+   }
+}
+
+#footer{
+height: 100%;
+}
+
+
+
+@media (min-width: 1400px){
+.main {
+    max-width: 2100px;
+    display: flex;
+
+    }
+}
+@media (min-width: 992px){
+    .main{
+    max-width: 960px;
+    display: flex;
+
+    }
+}
+@media (min-width: 768px){
+    .main {
+    max-width: 720px;
+    display: flex;
+
     }
 }
 
+@media (min-width: 576px){
+    .main {
+    max-width: 540px;
+    display: flex;
+
+    }
+}
+@media (min-width: 426px){
+    .main {
+        max-width: 396px;
+        display: flex;
+    
+        }
+    }
+@media (min-width: 320px){
+    .main{
+        max-width: 256px;
+        display: flex;
+    
+        }
+    }
+
+@media (min-width: 250px){
+    .main{
+        max-width: 240px;
+        }
+}
+@media (min-width: 150px){
+    .main {
+        max-width: 95px;
+        display: flex;
+        }
+}
