@@ -217,7 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }  if (!vidRight) {
             currentVid--;
         }
-        if (currentVid >= videos.length - 5  && vidRight) {
+        console.log(videos.length)
+        if (currentVid >= videos.length - 7  && vidRight) {
             scrollDirection2 = false;
             updateVid(false);
         } if (currentVid <= (videos.length === 0) && !vidRight) {
