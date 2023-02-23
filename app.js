@@ -10,24 +10,30 @@ let currentImg = 0;
 let interval;
 let scrollDirection = true;
 
-const theme_checkbox = document.getElementById("theme-checkbox");
-const theme = localStorage.getItem("theme");
+// Obtener el checkbox y el valor del tema guardado en localStorage
+const themeCheckbox = document.getElementById("theme-checkbox");
+const savedTheme = localStorage.getItem("theme");
 
-if (theme) {
-    document.documentElement.setAttribute("data_theme", "dark")
-    if (theme === "dark") {
-        theme_checkbox.checked = true;
+// Si hay un tema guardado en localStorage, establecer el tema en el documento
+if (savedTheme) {
+    document.documentElement.setAttribute("data-theme", savedTheme);
+
+    // Si el tema guardado es "dark", marcar el checkbox
+    if (savedTheme === "dark") {
+        themeCheckbox.checked = true;
     }
 }
 
-theme_checkbox.addEventListener("change", function () {
+// Agregar un event listener al checkbox para cambiar el tema
+themeCheckbox.addEventListener("change", function () {
     if (this.checked) {
+        // Si el checkbox está marcado, establecer el tema en "dark" y guardar en localStorage
         document.documentElement.setAttribute("data-theme", "dark");
         localStorage.setItem("theme", "dark");
-    }
-    else if (this.checked) {
-        document.documentElement.removeAttribute("data-theme", "dark");
-        localStorage.removeItem("theme", "dark");
+    } else {
+        // Si el checkbox no está marcado, eliminar el tema y el valor del localStorage
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.removeItem("theme");
     }
 });
 
@@ -109,7 +115,7 @@ function setPositionByIndex() {
 }
 
 function setSliderPosition() {
-    container.style.transform = `translateX(${currenTranslate}px)`
+    container.style.transform = `translateY(${currenTranslate}px)`
 }
 
 
@@ -163,80 +169,6 @@ next.addEventListener("click", () => {
 
 
 
-const testimonial = document.querySelector('.testimonial')
-const userImage = document.querySelector('.user-image')
-const username = document.querySelector('.username')
-const role = document.querySelector('.role')
-
-const testimonials = [
-    {
-        name: 'juana azurduy',
-        position: 'saraza',
-        photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6',
-        text: "me encanta su sonido !!",
-    },
-    {
-        name: 'June Cha',
-        position: 'Musica En Progreso',
-        photo: 'https://randomuser.me/api/portraits/women/44.jpg',
-        text: 'el sonido es buenisimo..',
-    },
-    {
-        name: 'Roberta ',
-        position: 'musica',
-        photo: 'https://randomuser.me/api/portraits/women/68.jpg',
-        text:
-            "Lorem ipsum dolor sit amet, consectertertur adipisicing elit. ",
-    },
-    {
-        name: 'Renee Sims',
-        position: 'baterista',
-        photo: 'https://randomuser.me/api/portraits/women/65.jpg',
-        text:
-            "es buenisimo los super recomiendo.",
-    },
-    {
-        name: 'Jonathan Nunfiez',
-        position: 'Graphic Designer',
-        photo: 'https://randomuser.me/api/portraits/men/43.jpg',
-        text:
-            "Lorem ipsum dolor sit amet, consectertertur adipisicing elit. ",
-    },
-    {
-        name: 'Sasha Ho',
-        position: 'Accountant',
-        photo:
-            'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?h=350&auto=compress&cs=tinysrgb',
-        text:
-            "Lorem ipsum dolor sit amet, consectertertur adipisicing elit.",
-    },
-    {
-        name: 'Veeti Seppanen',
-        position: 'Director',
-        photo: 'https://randomuser.me/api/portraits/men/97.jpg',
-        text:
-            "Lorem ipsum dolor sit amet, consectertertur adipisicing elit.",
-    },
-]
-
-let idx = 1
-
-function updateTestimonial() {
-    const {name, position, photo, text} = testimonials[idx]
-    testimonial.innerHTML = text
-    userImage.src = photo
-    username.innerHTML = name
-    role.innerHTML = position
-
-    idx++
-
-    if (idx > testimonials.length - 1) {
-        idx = 0
-    }
-}
-
-setInterval(updateTestimonial, 10000);
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const next = document.querySelector('#slideshow-next');
@@ -249,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     next.addEventListener("click", () => {
         clearInterval(interval);
-        if (currentVid >= videos.length - 5) {
+        if (currentVid >= videos.length - 7) {
             scrollDirection2 = false;
         } else {
             updateVid(true);
@@ -293,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (currentVid >= 10){
             scrollDirection2 = false;
         }
-        vidContainer.style.transform = `translateX(-${(currentVid) * 70}%)`;
+        vidContainer.style.transform = `translateX(-${(currentVid) * 65}%)`;
     }
 })
 
